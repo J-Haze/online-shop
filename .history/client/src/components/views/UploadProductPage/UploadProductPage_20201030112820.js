@@ -74,7 +74,7 @@ function UploadProductPage() {
       <Form onSubmit>
         {/*DropZone */}
 
-        <FileUpload refresh={updateImages} />
+        <FileUpload refreshFunction={updateImages} />
 
         <br />
         <br />

@@ -17,22 +17,12 @@ function FileUpload(props) {
       (response) => {
         if (response.data.success) {
           setImages([...images, response.data.image]);
-          props.refresh([...images, response.data.image]);
+          props.refreshFunction([...images, response.data.image]);
         } else {
           alert("Failed to save image to server.")
         }
       })
-    };
-    
-    const onDelete = (image) => {
-        const currentIndex = images.indexOf(image);
-
-        let newImages = [...images]
-        newImages.splice(currentIndex, 1)
-
-        setImages(newImages)
-        props.refresh(newImages)
-    }
+  };
 
   return (
     <div id="upload-component">
@@ -53,7 +43,7 @@ function FileUpload(props) {
 
           <div id="upload-scroll">
               {images.map((image, index) => (
-                  <div onClick={() => onDelete(image)}>
+                  <div onClick={() => ondeviceorientationabsolute(image)}>
                       <img id="scroll-img" src={`http://localhost:5000/${image}`} alt={`productImg-${index}`}/>
                       </div>
               ))}
