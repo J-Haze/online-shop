@@ -68,26 +68,3 @@ input.error {
 #dropzone-icon {
   font-size: 3rem;
 }
-
-#upload-scroll{
-  display: flex;
-  width: 350px;
-  height: 240px;
-  overflow-x: scroll;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
