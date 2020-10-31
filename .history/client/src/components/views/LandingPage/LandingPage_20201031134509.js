@@ -36,8 +36,8 @@ function LandingPage() {
     let newSkip = skip + limit;
 
     const newVariables = {
-      newSkip: skip,
-      newLimit: limit,
+      skip: skip,
+      limit: limit,
       //   loadMore: true,
       //   filters: Filters,
       //   searchTerm: SearchTerms,
@@ -45,14 +45,6 @@ function LandingPage() {
 
     getProducts(newVariables);
     setSkip(newSkip);
-
-    //   console.log({ newSkip })
-    //   console.log({ skip });
-    // //   console.log({ newLimit });
-    //   console.log({ limit });
-
-    console.log("PS:", postSize);
-    console.log("limit", limit);
   };
 
   const renderCards = Products.map((product, index) => {
@@ -94,7 +86,7 @@ function LandingPage() {
       <br />
       <br />
 
-      {postSize <= limit && (
+      {postSize >= limit && (
         <div id="load-button-cont">
           <button onClick={onLoadMore}>Load More</button>
         </div>
