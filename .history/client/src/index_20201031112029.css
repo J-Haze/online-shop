@@ -111,20 +111,14 @@ input.error {
 #carousel-image {
   width: auto;
   max-height: 150px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .col{
-  min-width: 183px;
-
+  min-width: 140px;
 }
 
 .product-card {
-  min-width: 183px;
+  min-width: 140px;
   max-width: 183px;
-  /* align-content: center; */
-  /* margin-left: 5px;
-  margin-right: 5px; */
 }
 

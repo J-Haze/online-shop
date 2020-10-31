@@ -6,25 +6,24 @@ import Axios from "axios";
 const { Title } = Typography;
 const { TextArea } = Input;
 
-const category = [
+const categories = [
   { key: 1, value: "Shirt" },
   { key: 2, value: "Shorts" },
   { key: 3, value: "Pants" },
 ];
 
-function UploadProductPage(props) {
+function UploadProductPage() {
   const [titleValue, setTitleValue] = useState("");
   const [descriptionValue, setDescriptionValue] = useState("");
   const [priceValue, setPriceValue] = useState("");
-  const [menChecked, setMenChecked] = useState(true);
-  const [genderValue, setGenderValue] = useState("men");
+  const [mensChecked, setMensChecked] = useState(true);
   const [categoryValue, setCategoryValue] = useState(1);
   const [smallValue, setSmallValue] = useState(0);
   const [mediumValue, setMediumValue] = useState(0);
   const [largeValue, setLargeValue] = useState(0);
   const [XLValue, setXLValue] = useState(0);
 
-  const [imagesValue, setImagesValue] = useState([]);
+  const [images, setImages] = useState([]);
 
   const onTitleChange = (event) => {
     setTitleValue(event.currentTarget.value);
@@ -38,10 +37,8 @@ function UploadProductPage(props) {
     setPriceValue(event.currentTarget.value);
   };
 
-  const onCheck = (selection) => {
-    // setMenChecked(!menChecked);
-    // menChecked ? setGenderValue("men") : setGenderValue("women");
-    setGenderValue(selection);
+  const onCheck = () => {
+    setMensChecked(!mensChecked);
   };
 
   const onCategoryChange = (event) => {
@@ -65,34 +62,7 @@ function UploadProductPage(props) {
   };
 
   const updateImages = (newImages) => {
-    setImagesValue(newImages);
-  };
-
-  const onSubmit = (event) => {
-    event.preventDefault();
-
-    const variables = {
-      writer: props.user.userData._id,
-      title: titleValue,
-      description: descriptionValue,
-      price: priceValue,
-      images: imagesValue,
-      gender: genderValue,
-      category: categoryValue,
-      quantitySmall: smallValue,
-      quantityMedium: mediumValue,
-      quantityLarge: largeValue,
-      quantityXL: XLValue,
-    };
-
-    Axios.post("/api/product/uploadProduct", variables).then((response) => {
-      if (response.data.success) {
-        alert("Product successfully uploaded");
-        props.history.push("/");
-      } else {
-        alert("Failed to upload Product");
-      }
-    });
+    setImages(newImages);
   };
 
   return (
@@ -101,9 +71,9 @@ function UploadProductPage(props) {
         <Title level={2}> Upload New Product</Title>
       </div>
 
-      <Form onSubmit={onSubmit}>
+      <Form onSubmit>
         {/*DropZone */}
-        <div id="add-images">Add Image(s):</div>
+          <div id="add-images">Add Image(s):</div>
         <FileUpload refresh={updateImages} />
 
         <br />
@@ -123,34 +93,31 @@ function UploadProductPage(props) {
 
         <Input
           type="radio"
-          id="men"
+          id="mens"
           name="gender"
-          value="men"
-          onChange={() => onCheck("men")}
-          //   checked={menChecked}
-          checked={genderValue == "men"}
-          //   disabled="true"
+          value="mens"
+          onChange={() => onCheck()}
+          checked={mensChecked}
         />
-        <label for="men">Men</label>
+        <label for="mens">Men's</label>
 
         <br />
         <Input
           type="radio"
-          id="women"
+          id="womens"
           name="gender"
-          value="women"
-          onChange={() => onCheck("women")}
-          //   checked={!menChecked}
-          checked={genderValue === "women"}
+          value="womens"
+          onChange={() => onCheck()}
+          checked={!mensChecked}
         />
-        <label for="women">Women</label>
+        <label for="womens">Women's</label>
         <br />
 
         <br />
         <br />
         <div>Type of Clothing:</div>
         <select onChange={onCategoryChange} value={categoryValue}>
-          {category.map((item) => (
+          {categories.map((item) => (
             <option key={item.key} value={item.key}>
               {item.value}
             </option>
@@ -175,7 +142,7 @@ function UploadProductPage(props) {
         <Input onChange={onXLChange} value={XLValue} type="number" />
         <br />
         <br />
-        <Button onClick={onSubmit}>Submit</Button>
+        <Button onClick>Submit</Button>
       </Form>
     </div>
   );

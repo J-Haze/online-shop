@@ -101,30 +101,17 @@ input.error {
   text-align: center;
 }
 
-#products-list {
+#products-list{
   display: flex;
   height: 300px;
   justify-content: center;
-  align-items: center;
+  align-items: center
 }
 
-#carousel-image {
-  width: auto;
-  max-height: 150px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
-.col{
-  min-width: 183px;
 
-}
 
-.product-card {
-  min-width: 183px;
-  max-width: 183px;
-  /* align-content: center; */
-  /* margin-left: 5px;
-  margin-right: 5px; */
-}
+
+
+
 

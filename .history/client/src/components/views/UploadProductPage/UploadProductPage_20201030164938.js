@@ -6,7 +6,7 @@ import Axios from "axios";
 const { Title } = Typography;
 const { TextArea } = Input;
 
-const category = [
+const categories = [
   { key: 1, value: "Shirt" },
   { key: 2, value: "Shorts" },
   { key: 3, value: "Pants" },
@@ -16,8 +16,8 @@ function UploadProductPage(props) {
   const [titleValue, setTitleValue] = useState("");
   const [descriptionValue, setDescriptionValue] = useState("");
   const [priceValue, setPriceValue] = useState("");
-  const [menChecked, setMenChecked] = useState(true);
-  const [genderValue, setGenderValue] = useState("men");
+  const [mensChecked, setMensChecked] = useState(true);
+  const [genderValue, setGenderValue] = useState("mens");
   const [categoryValue, setCategoryValue] = useState(1);
   const [smallValue, setSmallValue] = useState(0);
   const [mediumValue, setMediumValue] = useState(0);
@@ -39,9 +39,9 @@ function UploadProductPage(props) {
   };
 
   const onCheck = (selection) => {
-    // setMenChecked(!menChecked);
-    // menChecked ? setGenderValue("men") : setGenderValue("women");
-    setGenderValue(selection);
+    // setMensChecked(!mensChecked);
+    // mensChecked ? setGenderValue("mens") : setGenderValue("womens");
+      setGenderValue(selection)
   };
 
   const onCategoryChange = (event) => {
@@ -78,21 +78,21 @@ function UploadProductPage(props) {
       price: priceValue,
       images: imagesValue,
       gender: genderValue,
-      category: categoryValue,
+      categories: categoryValue,
       quantitySmall: smallValue,
       quantityMedium: mediumValue,
       quantityLarge: largeValue,
       quantityXL: XLValue,
     };
 
-    Axios.post("/api/product/uploadProduct", variables).then((response) => {
-      if (response.data.success) {
-        alert("Product successfully uploaded");
-        props.history.push("/");
-      } else {
-        alert("Failed to upload Product");
-      }
-    });
+      Axios.post("/api/product/uploadProduct", variables)
+          .then(response => {
+              if (response.data.success) {
+              
+              } else {
+                  alert('Failed to upload Product')
+          }
+      })
   };
 
   return (
@@ -123,34 +123,34 @@ function UploadProductPage(props) {
 
         <Input
           type="radio"
-          id="men"
+          id="mens"
           name="gender"
-          value="men"
-          onChange={() => onCheck("men")}
-          //   checked={menChecked}
-          checked={genderValue == "men"}
+          value="mens"
+          onChange={() => onCheck("mens")}
+          //   checked={mensChecked}
+          checked={genderValue == "mens"}
           //   disabled="true"
         />
-        <label for="men">Men</label>
+        <label for="mens">Men's</label>
 
         <br />
         <Input
           type="radio"
-          id="women"
+          id="womens"
           name="gender"
-          value="women"
-          onChange={() => onCheck("women")}
-          //   checked={!menChecked}
-          checked={genderValue === "women"}
+          value="womens"
+          onChange={() => onCheck("womens")}
+        //   checked={!mensChecked}
+          checked={genderValue === "womens"}
         />
-        <label for="women">Women</label>
+        <label for="womens">Women's</label>
         <br />
 
         <br />
         <br />
         <div>Type of Clothing:</div>
         <select onChange={onCategoryChange} value={categoryValue}>
-          {category.map((item) => (
+          {categories.map((item) => (
             <option key={item.key} value={item.key}>
               {item.value}
             </option>

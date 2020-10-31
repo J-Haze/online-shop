@@ -56,7 +56,7 @@ input.error {
   justify-content: space-between;
 }
 
-#add-images {
+#add-images{
   /* justify-content: center; */
   /* text-align: center; */
   padding-left: 110px;
@@ -91,40 +91,3 @@ input.error {
   height: 240px;
   max-height: 240px;
 }
-
-#landing-cont {
-  width: 75%;
-  margin: 3rem auto;
-}
-
-#landing-inner {
-  text-align: center;
-}
-
-#products-list {
-  display: flex;
-  height: 300px;
-  justify-content: center;
-  align-items: center;
-}
-
-#carousel-image {
-  width: auto;
-  max-height: 150px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.col{
-  min-width: 183px;
-
-}
-
-.product-card {
-  min-width: 183px;
-  max-width: 183px;
-  /* align-content: center; */
-  /* margin-left: 5px;
-  margin-right: 5px; */
-}
-

@@ -13,7 +13,7 @@ function LandingPage() {
     Axios.post("/api/product/getProducts").then((response) => {
       if (response.data.success) {
         setProducts(response.data.products);
-        // console.log(response.data.products);
+        console.log(response.data.products);
       } else {
         alert("Failed to fetch product data");
       }
@@ -22,9 +22,8 @@ function LandingPage() {
 
   const renderCards = Products.map((product, index) => {
     return (
-      <Col className="col" lg={6} md={8} xs={12} key={index}>
+      <Col lg={6} md={8} xs={24}>
         <Card
-          className="product-card"
           hoverable={true}
           cover={
             <a href={`/product/${product._id}`}>

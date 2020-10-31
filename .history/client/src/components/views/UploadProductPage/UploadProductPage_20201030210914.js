@@ -131,7 +131,7 @@ function UploadProductPage(props) {
           checked={genderValue == "men"}
           //   disabled="true"
         />
-        <label for="men">Men</label>
+        <label for="men">Men's</label>
 
         <br />
         <Input
@@ -143,7 +143,7 @@ function UploadProductPage(props) {
           //   checked={!menChecked}
           checked={genderValue === "women"}
         />
-        <label for="women">Women</label>
+        <label for="women">Women's</label>
         <br />
 
         <br />

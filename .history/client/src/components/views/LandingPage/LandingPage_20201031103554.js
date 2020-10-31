@@ -22,9 +22,8 @@ function LandingPage() {
 
   const renderCards = Products.map((product, index) => {
     return (
-      <Col className="col" lg={6} md={8} xs={12} key={index}>
+      <Col lg={6} md={8} xs={24} key={index}>
         <Card
-          className="product-card"
           hoverable={true}
           cover={
             <a href={`/product/${product._id}`}>
