@@ -85,8 +85,8 @@ function LandingPage() {
 
   const showFilteredResults = (filters) => {
     const newVariables = {
-      newSkip: 0,
-      newLimit: limit,
+      skip: 0,
+      limit: limit,
       filters: filters,
       //   loadMore: false,
     };
