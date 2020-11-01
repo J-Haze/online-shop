@@ -62,6 +62,17 @@
 //   },
 // ];
 
+const gender = [
+  {
+    _id: 1,
+    gender: "Men's",
+  },
+  {
+    _id: 2,
+    name: "Women's",
+  },
+];
+
 const categories = [
   {
     _id: 1,

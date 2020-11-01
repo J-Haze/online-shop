@@ -96,18 +96,18 @@ function LandingPage() {
     setSkip(0);
   };
 
-  const handlePrice = (value) => {
-    const data = price;
-    let array = [];
+    const handlePrice = (value) => {
+        const data = price;
+        let array = [];
 
-    for (let key in data) {
-      if (data[key]._id === parseInt(value, 10)) {
-        array = data[key].array;
-      }
-    }
-    console.log("array", array);
-    return array;
-  };
+        for (let key in data) {
+        if (data[key]._id === parseInt(value, 10)) {
+            array = data[key].array;
+        }
+        }
+        console.log("array", array);
+        return array;
+    };
 
   const handleFilters = (filters, categoryType) => {
     const newFilters = { ...Filters };
@@ -115,10 +115,10 @@ function LandingPage() {
     newFilters[categoryType] = filters;
     console.log("CategoryType", categoryType);
 
-    if (categoryType === "price") {
-      let priceValues = handlePrice(filters);
-      newFilters[categoryType] = priceValues;
-    }
+      if (categoryType === "price") {
+        let priceValues = handlePrice(filters);
+        newFilters[categoryType] = priceValues;
+      }
 
     console.log("newFilters:", newFilters);
 

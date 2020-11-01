@@ -47,11 +47,9 @@ function CheckBox(props) {
     //update this checked information into Parent Component
   };
 
-  const renderCheckboxLists = () =>
-    props.list &&
-    props.list.map((value, index) => (
-      //   const renderCheckboxLists = () =>
-      // categories.map((value, index) => (
+  const renderCheckboxLists = () => props.list && props.list.map((value, index) => (
+//   const renderCheckboxLists = () =>
+    // categories.map((value, index) => (
       <React.Fragment key={index}>
         <Checkbox
           onChange={() => handleToggle(value._id)}
@@ -71,6 +69,8 @@ function CheckBox(props) {
       //       />
       //       <span>{value.name}</span>
       //     </React.Fragment>
+        
+        
     ));
 
   return (

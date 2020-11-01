@@ -5,7 +5,6 @@ import { Icon, Col, Card, Row } from "antd";
 import ImageSlider from "../../utils/ImageSlider";
 import CheckBox from "./Sections/CheckBox";
 import RadioBox from "./Sections/RadioBox";
-import { price, category, genders } from "./Sections/FilterData";
 
 const { Meta } = Card;
 
@@ -96,29 +95,16 @@ function LandingPage() {
     setSkip(0);
   };
 
-  const handlePrice = (value) => {
-    const data = price;
-    let array = [];
-
-    for (let key in data) {
-      if (data[key]._id === parseInt(value, 10)) {
-        array = data[key].array;
-      }
-    }
-    console.log("array", array);
-    return array;
-  };
-
   const handleFilters = (filters, categoryType) => {
     const newFilters = { ...Filters };
 
     newFilters[categoryType] = filters;
     console.log("CategoryType", categoryType);
 
-    if (categoryType === "price") {
-      let priceValues = handlePrice(filters);
-      newFilters[categoryType] = priceValues;
-    }
+    //   if (categoryType === "price") {
+    //     let priceValues = handlePrice(filters);
+    //     newFilters[categoryType] = priceValues;
+    //   }
 
     console.log("newFilters:", newFilters);
 
@@ -135,22 +121,23 @@ function LandingPage() {
         </h2>
       </div>
 
-      <Row gutter={[16, 16]}>
-        <Col lg={12} xs={24}>
-          <CheckBox
-            list={category}
-            handleFilters={(filters) => handleFilters(filters, "category")}
-          />
-        </Col>
-        <Col lg={12} xs={24}>
-          <RadioBox
-            list={price}
-            handleFilters={(filters) => handleFilters(filters, "price")}
-          />
-        </Col>
-      </Row>
+          <Row gutter={[16, 16]}>
+              <Col lg={12} xs={24}></Col>
+              <Col>
 
-      {/* Search */}
+              </Col>
+        </Row>  
+
+
+      <CheckBox
+        handleFilters={(filters) => handleFilters(filters, "category")}
+          />
+          <RadioBox 
+              handleFilters={(filters) => handleFilters(filters, "price")}
+          />
+          
+
+          {/* Search */}
 
       {Products.length === 0 ? (
         <div id="products-list">

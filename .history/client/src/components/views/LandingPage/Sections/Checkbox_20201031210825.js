@@ -3,20 +3,20 @@ import { Checkbox, Collapse } from "antd";
 
 const { Panel } = Collapse;
 
-// const categories = [
-//   {
-//     _id: 1,
-//     name: "Shirts",
-//   },
-//   {
-//     _id: 2,
-//     name: "Shorts",
-//   },
-//   {
-//     _id: 3,
-//     name: "Pants",
-//   },
-// ];
+const categories = [
+  {
+    _id: 1,
+    name: "Shirts",
+  },
+  {
+    _id: 2,
+    name: "Shorts",
+  },
+  {
+    _id: 3,
+    name: "Pants",
+  },
+];
 
 // const genders = [
 //   {
@@ -47,11 +47,9 @@ function CheckBox(props) {
     //update this checked information into Parent Component
   };
 
+  // const renderCheckboxLists = () => props.list && props.list.map((value, index) => (
   const renderCheckboxLists = () =>
-    props.list &&
-    props.list.map((value, index) => (
-      //   const renderCheckboxLists = () =>
-      // categories.map((value, index) => (
+    categories.map((value, index) => (
       <React.Fragment key={index}>
         <Checkbox
           onChange={() => handleToggle(value._id)}
@@ -71,12 +69,14 @@ function CheckBox(props) {
       //       />
       //       <span>{value.name}</span>
       //     </React.Fragment>
+        
+        
     ));
 
   return (
     <div>
       <Collapse defaultActiveKey={["0"]}>
-        <Panel header="Categories" key="1">
+        <Panel header="Filter" key="1">
           {renderCheckboxLists()}
         </Panel>
       </Collapse>

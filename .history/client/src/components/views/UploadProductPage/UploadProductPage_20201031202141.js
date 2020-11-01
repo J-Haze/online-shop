@@ -12,11 +12,6 @@ const categories = [
   { key: 3, value: "Pants" },
 ];
 
-const genders = [
-  { key: 1, value: "Men's" },
-  { key: 2, value: "Women's" },
-];
-
 function UploadProductPage(props) {
   const [titleValue, setTitleValue] = useState("");
   const [descriptionValue, setDescriptionValue] = useState("");
@@ -130,7 +125,7 @@ function UploadProductPage(props) {
           type="radio"
           id="men"
           name="gender"
-          value={1}
+                  value={1}
           onChange={() => onCheck(1)}
           //   checked={menChecked}
           checked={genderValue == 1}
@@ -143,8 +138,9 @@ function UploadProductPage(props) {
           type="radio"
           id="women"
           name="gender"
-          value={2}
+                  value={2}
           onChange={() => onCheck(2)}
+          
           checked={genderValue == 2}
         />
         <label for="women">Women</label>
