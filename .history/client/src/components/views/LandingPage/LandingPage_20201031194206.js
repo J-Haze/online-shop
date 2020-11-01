@@ -11,7 +11,7 @@ function LandingPage() {
   const [Products, setProducts] = useState([]);
   const [skip, setSkip] = useState(0);
   const [limit, setLimit] = useState(8);
-  const [postSize, setPostSize] = useState(0);
+  const [postSize, setPostSize] = useState();
 
   const [Filters, setFilters] = useState({
     category: [],
@@ -46,8 +46,8 @@ function LandingPage() {
     let newSkip = skip + limit;
 
     const newVariables = {
-      skip: newSkip,
-      limit: limit,
+      newSkip: skip,
+      newLimit: limit,
       loadMore: true,
       filters: Filters,
       //   searchTerm: SearchTerms,
@@ -90,8 +90,8 @@ function LandingPage() {
       filters: filters,
       //   loadMore: false,
     };
-    getProducts(newVariables);
     setSkip(0);
+    getProducts(newVariables);
   };
 
   const handleFilters = (filters, categoryType) => {

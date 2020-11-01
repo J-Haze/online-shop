@@ -34,8 +34,8 @@ function LandingPage() {
         } else {
           setProducts(response.data.products);
         }
-        setPostSize(response.data.postSize);
-        console.log("postSize", postSize);
+          setPostSize(response.data.postSize);
+          console.log("postSize", postSize)
       } else {
         alert("Failed to fetch product data");
       }
@@ -46,8 +46,8 @@ function LandingPage() {
     let newSkip = skip + limit;
 
     const newVariables = {
-      skip: newSkip,
-      limit: limit,
+      newSkip: skip,
+      newLimit: limit,
       loadMore: true,
       filters: Filters,
       //   searchTerm: SearchTerms,
@@ -88,10 +88,10 @@ function LandingPage() {
       newSkip: 0,
       newLimit: limit,
       filters: filters,
-      //   loadMore: false,
+    //   loadMore: false,
     };
-    getProducts(newVariables);
     setSkip(0);
+      getProducts(newVariables);
   };
 
   const handleFilters = (filters, categoryType) => {

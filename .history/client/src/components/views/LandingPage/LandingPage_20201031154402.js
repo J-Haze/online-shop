@@ -3,7 +3,7 @@ import { FaCode } from "react-icons/fa";
 import Axios from "axios";
 import { Icon, Col, Card, Row } from "antd";
 import ImageSlider from "../../utils/ImageSlider";
-import CheckBox from "./Sections/CheckBox";
+import CheckBox from "./Sections/CheckBox"
 
 const { Meta } = Card;
 
@@ -13,10 +13,10 @@ function LandingPage() {
   const [limit, setLimit] = useState(8);
   const [postSize, setPostSize] = useState(0);
 
-  const [Filters, setFilters] = useState({
-    category: [],
-    price: [],
-  });
+    const [Filters, setFilters] = useState({
+        continents: [],
+        price: [],
+    });
 
   useEffect(() => {
     const variables = {
@@ -29,13 +29,9 @@ function LandingPage() {
   const getProducts = (variables) => {
     Axios.post("/api/product/getProducts", variables).then((response) => {
       if (response.data.success) {
-        if (variables.loadMore) {
-          setProducts([...Products, ...response.data.products]);
-        } else {
-          setProducts(response.data.products);
-        }
+        setProducts(response.data.products);
+        // console.log(response.data.products);
         setPostSize(response.data.postSize);
-        console.log("postSize", postSize);
       } else {
         alert("Failed to fetch product data");
       }
@@ -46,10 +42,10 @@ function LandingPage() {
     let newSkip = skip + limit;
 
     const newVariables = {
-      skip: newSkip,
-      limit: limit,
-      loadMore: true,
-      filters: Filters,
+      newSkip: skip,
+      newLimit: limit,
+      //   loadMore: true,
+      //   filters: Filters,
       //   searchTerm: SearchTerms,
     };
 
@@ -61,8 +57,8 @@ function LandingPage() {
     // //   console.log({ newLimit });
     //   console.log({ limit });
 
-    // console.log("PS:", postSize);
-    // console.log("limit", limit);
+    console.log("PS:", postSize);
+    console.log("limit", limit);
   };
 
   const renderCards = Products.map((product, index) => {
@@ -82,34 +78,37 @@ function LandingPage() {
       </Col>
     );
   });
+    
 
-  const showFilteredResults = (filters) => {
-    const newVariables = {
-      newSkip: 0,
-      newLimit: limit,
-      filters: filters,
-      //   loadMore: false,
+    const showFilteredResults = (filters) => {
+      const variables = {
+        newSkip: 0,
+        newLimit: limit,
+        filters: filters,
+      };
+      getProducts(variables);
+      setSkip(0);
     };
-    getProducts(newVariables);
-    setSkip(0);
-  };
 
-  const handleFilters = (filters, categoryType) => {
-    const newFilters = { ...Filters };
+    
+    
+    
+        const handleFilters = (filters, categoryType) => {
+          const newFilters = { ...Filters };
 
-    newFilters[categoryType] = filters;
-    console.log("CategoryType", categoryType);
+          newFilters[categoryType] = filters;
 
-    //   if (categoryType === "price") {
-    //     let priceValues = handlePrice(filters);
-    //     newFilters[categoryType] = priceValues;
-    //   }
+        //   if (categoryType === "price") {
+        //     let priceValues = handlePrice(filters);
+        //     newFilters[category] = priceValues;
+        //   }
 
-    console.log("newFilters:", newFilters);
+          console.log(newFilters);
 
-    showFilteredResults(newFilters);
-    setFilters(newFilters);
-  };
+          showFilteredResults(newFilters);
+          setFilters(newFilters);
+        };
+    
 
   return (
     <div id="landing-cont">
@@ -137,7 +136,7 @@ function LandingPage() {
       <br />
       <br />
 
-      {postSize >= limit && (
+      {postSize <= limit && (
         <div id="load-button-cont">
           <button onClick={onLoadMore}>Load More</button>
         </div>

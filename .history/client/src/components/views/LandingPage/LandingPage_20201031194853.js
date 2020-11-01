@@ -90,8 +90,8 @@ function LandingPage() {
       filters: filters,
       //   loadMore: false,
     };
-    getProducts(newVariables);
-    setSkip(0);
+      getProducts(newVariables);
+      setSkip(0);
   };
 
   const handleFilters = (filters, categoryType) => {
@@ -139,7 +139,7 @@ function LandingPage() {
 
       {postSize >= limit && (
         <div id="load-button-cont">
-          <button onClick={onLoadMore}>Load More</button>
+                  <button onClick={onLoadMore}>Load More {limit} {postSize}</button>
         </div>
       )}
     </div>
