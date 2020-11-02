@@ -33,19 +33,19 @@ const price = [
 
 const gender = [
   {
-    _id: 0,
-    name: "All",
+    _id: 1,
+    name: "Any",
     array: [],
   },
   {
-    _id: 1,
+    _id: 2,
     name: "Men's",
-    array: [1],
+    array: [0, 9.99],
   },
   {
-    _id: 2,
+    _id: 3,
     name: "Women's",
-    array: [2],
+    array: [10, 25],
   },
 ];
 

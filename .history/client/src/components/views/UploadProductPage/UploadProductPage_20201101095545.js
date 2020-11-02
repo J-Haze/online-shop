@@ -130,10 +130,10 @@ function UploadProductPage(props) {
           type="radio"
           id="men"
           name="gender"
-          value={1}
-          onChange={() => onCheck(1)}
+          value={2}
+          onChange={() => onCheck(2)}
           //   checked={menChecked}
-          checked={genderValue == 1}
+          checked={genderValue == 2}
           //   disabled="true"
         />
         <label for="men">Men's</label>
@@ -143,9 +143,9 @@ function UploadProductPage(props) {
           type="radio"
           id="women"
           name="gender"
-          value={2}
-          onChange={() => onCheck(2)}
-          checked={genderValue == 2}
+          value={3}
+          onChange={() => onCheck(3)}
+          checked={genderValue == 3}
         />
         <label for="women">Women's</label>
         <br />

@@ -5,7 +5,7 @@ import { Icon, Col, Card, Row } from "antd";
 import ImageSlider from "../../utils/ImageSlider";
 import CheckBox from "./Sections/CheckBox";
 import RadioBox from "./Sections/RadioBox";
-import RadioGender from "./Sections/RadioGender";
+import RadioGender from "./Sections/RadioGender"
 import { price, category, gender } from "./Sections/FilterData";
 
 const { Meta } = Card;
@@ -110,19 +110,6 @@ function LandingPage() {
     return array;
   };
 
-  const handleGender = (value) => {
-    const data = gender;
-    let array = [];
-
-    for (let key in data) {
-      if (data[key]._id === parseInt(value, 10)) {
-        array = data[key].array;
-      }
-    }
-    console.log("array", array);
-    return array;
-  };
-
   const handleFilters = (filters, categoryType) => {
     const newFilters = { ...Filters };
 
@@ -132,11 +119,6 @@ function LandingPage() {
     if (categoryType === "price") {
       let priceValues = handlePrice(filters);
       newFilters[categoryType] = priceValues;
-    }
-
-    if (categoryType === "gender") {
-      let genderValues = handleGender(filters);
-      newFilters[categoryType] = genderValues;
     }
 
     console.log("newFilters:", newFilters);
