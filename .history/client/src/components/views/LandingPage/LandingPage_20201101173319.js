@@ -193,7 +193,7 @@ function LandingPage() {
 
       {postSize >= limit && (
         <div id="load-button-cont">
-                  <button onClick={onLoadMore}>Load More</button>
+          <button onClick={onLoadMore}>Load More</button>
         </div>
       )}
     </div>
