@@ -7,7 +7,7 @@ import CheckBox from "./Sections/CheckBox";
 import RadioBox from "./Sections/RadioBox";
 import RadioGender from "./Sections/RadioGender";
 import { price, category, gender } from "./Sections/FilterData";
-import SearchFeature from "./Sections/SearchFeature";
+import SearchFeature from "./Sections/SearchFeature"
 
 const { Meta } = Card;
 
@@ -16,7 +16,7 @@ function LandingPage() {
   const [skip, setSkip] = useState(0);
   const [limit, setLimit] = useState(8);
   const [postSize, setPostSize] = useState(0);
-  const [searchTerms, setSearchTerms] = useState("");
+
   const [Filters, setFilters] = useState({
     category: [],
     price: [],
@@ -54,7 +54,7 @@ function LandingPage() {
       limit: limit,
       loadMore: true,
       filters: Filters,
-      searchTerm: searchTerms,
+      //   searchTerm: SearchTerms,
     };
 
     getProducts(newVariables);
@@ -146,20 +146,6 @@ function LandingPage() {
     setFilters(newFilters);
   };
 
-  const updateSearchTerms = (newSearchTerm) => {
-    const variables = {
-      skip: 0,
-      limit: limit,
-      filters: Filters,
-      searchTerm: newSearchTerm,
-    };
-
-    setSkip(0);
-    setSearchTerms(newSearchTerm);
-
-    getProducts(variables);
-  };
-
   return (
     <div id="landing-cont">
       <div id="landing-inner">
@@ -192,8 +178,8 @@ function LandingPage() {
       </Row>
 
       {/* Search */}
-      <div id="search-cont">
-        <SearchFeature refreshFunction={updateSearchTerms} />
+      <div id="search-cont" >
+        <SearchFeature />
       </div>
 
       {Products.length === 0 ? (

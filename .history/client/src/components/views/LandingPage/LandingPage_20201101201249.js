@@ -193,7 +193,7 @@ function LandingPage() {
 
       {/* Search */}
       <div id="search-cont">
-        <SearchFeature refreshFunction={updateSearchTerms} />
+        <SearchFeature />
       </div>
 
       {Products.length === 0 ? (

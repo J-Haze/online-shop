@@ -17,6 +17,7 @@ function LandingPage() {
   const [limit, setLimit] = useState(8);
   const [postSize, setPostSize] = useState(0);
   const [searchTerms, setSearchTerms] = useState("");
+  ("");
   const [Filters, setFilters] = useState({
     category: [],
     price: [],
@@ -54,7 +55,7 @@ function LandingPage() {
       limit: limit,
       loadMore: true,
       filters: Filters,
-      searchTerm: searchTerms,
+      searchTerm: SearchTerms,
     };
 
     getProducts(newVariables);
@@ -193,7 +194,7 @@ function LandingPage() {
 
       {/* Search */}
       <div id="search-cont">
-        <SearchFeature refreshFunction={updateSearchTerms} />
+        <SearchFeature />
       </div>
 
       {Products.length === 0 ? (
