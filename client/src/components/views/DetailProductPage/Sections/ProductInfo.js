@@ -9,7 +9,12 @@ function ProductInfo(props) {
         setProduct(props.detail)
         }, [props.detail])
 
+    const addToCartHandler = () => {
+        props.addToCart(props.detail._id)
+    }
 
+    
+    
 
     return (
       <div>
@@ -26,7 +31,7 @@ function ProductInfo(props) {
         <br />
         <br />
         <div className="product-info-btn-cont">
-          <Button size="large" shape="round" type="danger" onClick>
+          <Button size="large" shape="round" type="danger" onClick={addToCartHandler}>
             Add to Cart
           </Button>
         </div>
