@@ -191,20 +191,18 @@ tr:nth-child(even) {
   margin: 3rem auto;
 }
 
-#cart-total{
+#cart-total {
   margin-top: 3rem;
 }
 
-#empty-cont{
+#empty-cart-cont {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.cart-image{
+.cart-image {
   width: 70px;
 }
-
-
 

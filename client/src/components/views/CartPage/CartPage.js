@@ -19,19 +19,17 @@ function CartPage(props) {
 
     setTotal(total);
     setShowTotal(true);
-    };
-    
+  };
 
-    const removeFromCart = (productId) => {
-        dispatch(removeCartItem(productId)).then((response) => {
-        if (response.payload.cartDetail.length <= 0) {
-            setShowTotal(false);
-        } else {
-            calculateTotal(response.payload.cartDetail);
-        }
-        });
-    };
-
+  const removeFromCart = (productId) => {
+    dispatch(removeCartItem(productId)).then((response) => {
+      if (response.payload.cartDetail.length <= 0) {
+        setShowTotal(false);
+      } else {
+        calculateTotal(response.payload.cartDetail);
+      }
+    });
+  };
 
   useEffect(() => {
     let cartItems = [];
@@ -59,14 +57,20 @@ function CartPage(props) {
           products={props.user.cartDetail}
           removeItem={removeFromCart}
         />
-        <div id="cart-total">
-          <h2>Total amount: $</h2>
-        </div>
-        <Result status="success" title="Successfully Purchased Items" />
-        <div id="empty-cont">
-          <Empty description={false} />
-          <p> No Items In the Cart</p>
-        </div>
+
+        {ShowTotal ? (
+          <div id="cart-total">
+            <h2>Total amount: ${Total} </h2>
+          </div>
+        ) : ShowSuccess ? (
+          <Result status="success" title="Successfully Purchased Items" />
+        ) : (
+          <div id="empty-cart-cont">
+            <br />
+            <Empty description={false} />
+            <p>No Items In the Cart</p>
+          </div>
+        )}
       </div>
     </div>
   );
