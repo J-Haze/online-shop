@@ -3,9 +3,10 @@ import {
   LOGIN_USER,
   REGISTER_USER,
   AUTH_USER,
-    LOGOUT_USER,
+  LOGOUT_USER,
   ADD_TO_CART_USER,
-    GET_CART_ITEMS_USER,
+  GET_CART_ITEMS_USER,
+  REMOVE_CART_ITEM_USER,
 } from "./types";
 import { USER_SERVER } from "../components/Config.js";
 
@@ -64,7 +65,6 @@ export function addToCart(_id) {
   };
 }
 
-
 export function getCartItems(cartItems, userCart) {
   const request = axios
     .get(`/api/product/products_by_id?id=${cartItems}&type=array`)
@@ -89,5 +89,22 @@ export function getCartItems(cartItems, userCart) {
   };
 }
 
+export function removeCartItem(id) {
+  const request = axios
+    .get(`/api/users/removeFromCart?_id=${id}`)
+    .then((response) => {
+      response.data.cart.forEach((item) => {
+        response.data.cartDetail.forEach((k, i) => {
+          if (item.id === k._id) {
+            response.data.cartDetail[i].quantity = item.quantity;
+          }
+        });
+      });
+      return response.data;
+    });
 
-
+  return {
+    type: REMOVE_CART_ITEM_USER,
+    payload: request,
+  };
+}

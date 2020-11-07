@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getCartItems } from "../../../_actions/user_actions";
+import { getCartItems, removeCartItem } from "../../../_actions/user_actions";
 import UserCardBlock from "./Sections/UserCardBlock";
 import { Result, Empty } from "antd";
 
@@ -19,7 +19,19 @@ function CartPage(props) {
 
     setTotal(total);
     setShowTotal(true);
-  };
+    };
+    
+
+    const removeFromCart = (productId) => {
+        dispatch(removeCartItem(productId)).then((response) => {
+        if (response.payload.cartDetail.length <= 0) {
+            setShowTotal(false);
+        } else {
+            calculateTotal(response.payload.cartDetail);
+        }
+        });
+    };
+
 
   useEffect(() => {
     let cartItems = [];
@@ -43,7 +55,10 @@ function CartPage(props) {
     <div id="cart-page">
       <h1> My Cart</h1>
       <div>
-        <UserCardBlock products={props.user.cartDetail} />
+        <UserCardBlock
+          products={props.user.cartDetail}
+          removeItem={removeFromCart}
+        />
         <div id="cart-total">
           <h2>Total amount: $</h2>
         </div>
