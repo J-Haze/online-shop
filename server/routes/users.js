@@ -19,7 +19,7 @@ router.get("/auth", auth, (req, res) => {
     role: req.user.role,
     image: req.user.image,
     cart: req.user.cart,
-    history: req.user.history
+    history: req.user.history,
   });
 });
 
@@ -71,8 +71,8 @@ router.get("/logout", auth, (req, res) => {
   );
 });
 
-router.post("/addToCart", auth, (req, res) => {
-  User.find({ _id: req.user._id }, (err, userInfo) => {
+router.get("/addToCart", auth, (req, res) => {
+  User.findOne({ _id: req.user._id }, (err, userInfo) => {
     let duplicate = false;
 
     console.log(userInfo);
@@ -88,7 +88,7 @@ router.post("/addToCart", auth, (req, res) => {
         { _id: req.user._id, "cart.id": req.query.productId },
         { $inc: { "cart.$.quantity": 1 } },
         { new: true },
-        () => {
+        (err, userInfo) => {
           if (err) return res.json({ success: false, err });
           res.status(200).json(userInfo.cart);
         }

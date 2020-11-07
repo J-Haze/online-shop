@@ -5,7 +5,7 @@ import {
   AUTH_USER,
     LOGOUT_USER,
   ADD_TO_CART_USER,
-    GET_CART_ITEM_USER,
+    GET_CART_ITEMS_USER,
 } from "./types";
 import { USER_SERVER } from "../components/Config.js";
 
@@ -55,14 +55,15 @@ export function logoutUser() {
 
 export function addToCart(_id) {
   const request = axios
-    .post(`${USER_SERVER}/addToCart?productID=${_id}`)
+    .get(`${USER_SERVER}/addToCart?productId=${_id}`)
     .then((response) => response.data);
 
-    return {
-        type: ADD_TO_CART_USER,
-        payload: request,
-    };
+  return {
+    type: ADD_TO_CART_USER,
+    payload: request,
+  };
 }
+
 
 export function getCartItems(cartItems, userCart) {
   const request = axios
@@ -83,7 +84,7 @@ export function getCartItems(cartItems, userCart) {
     });
 
   return {
-    type: GET_CART_ITEM_USER,
+    type: GET_CART_ITEMS_USER,
     payload: request,
   };
 }
