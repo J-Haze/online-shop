@@ -3,10 +3,15 @@ import { Button, Descriptions } from "antd";
 
 function ProductInfo(props) {
   const [Product, setProduct] = useState({});
+  const [sizeValue, setSizeValue] = useState(1);
 
   useEffect(() => {
     setProduct(props.detail);
   }, [props.detail]);
+
+  useEffect(() => {
+    setSizeValue(props.sizeValue);
+  }, [props.sizeValue]);
 
   const addToCartHandler = () => {
     props.addToCart(props.detail._id);
@@ -32,7 +37,7 @@ function ProductInfo(props) {
 
       <div>
         <div id="select-size" >Select Size:</div>
-        <select onChange={props.onSizeChange} sizeValue={props.sizeValue}>
+        <select onChange={props.onSizeChange} value={sizeValue}>
           {sizes.map((item) => (
             <option key={item.key} value={item.key}>
               {item.value}

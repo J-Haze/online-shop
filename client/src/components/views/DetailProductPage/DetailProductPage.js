@@ -28,7 +28,8 @@ function DetailProductPage(props) {
   }, []);
 
   const addToCartHandler = (productId) => {
-    dispatch(addToCart(productId));
+    dispatch(addToCart(productId, sizeValue));
+    console.log(sizeValue);
   };
 
   const onSizeChange = (event) => {
@@ -53,6 +54,7 @@ function DetailProductPage(props) {
             detail={Product}
             onSizeChange={onSizeChange}
             sizeValue={sizeValue}
+            // sizes={sizes}
           />
         </Col>
       </Row>
