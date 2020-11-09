@@ -84,6 +84,13 @@ router.get("/addToCart", auth, (req, res) => {
       }
     });
 
+        // userInfo.cart.forEach((item) => {
+        //   // if (item.id == req.query.productId) {
+        //     if (item.size == req.query.item.size) {
+        //     sizeDuplicate = true;
+        //   }
+        // });
+
     if (duplicate) {
       User.findOneAndUpdate(
         { _id: req.user._id, "cart.id": req.query.productId },
