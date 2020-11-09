@@ -79,6 +79,7 @@ router.get("/addToCart", auth, (req, res) => {
 
     userInfo.cart.forEach((item) => {
       if (item.id == req.query.productId) {
+        // if ((item.id == req.query.productId) && item.size == req.query.item.size) {
         duplicate = true;
       }
     });
