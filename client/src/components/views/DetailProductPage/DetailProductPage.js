@@ -1,10 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext, createContext } from "react";
 import Axios from "axios";
 import { Row, Col } from "antd";
 import ProductImage from "./Sections/ProductImage";
 import ProductInfo from "./Sections/ProductInfo";
 import { addToCart } from "../../../_actions/user_actions";
+import { addProductSize } from "../../../_actions/user_actions";
 import { useDispatch } from "react-redux";
+
+export const Context = createContext({});
+
+// import { REDUX_SIZE } from "../../../../../client/src/_actions/types.js";
+// import { reduxSize } from "../../../_actions/user_actions";
+
+// import posts from "./size_reducer"
 
 function DetailProductPage(props) {
   const dispatch = useDispatch();
@@ -27,14 +35,39 @@ function DetailProductPage(props) {
     );
   }, []);
 
+  // const sizeContext = useContext(sizeValue);
+  // const sizeShared = sizeContext(sizeContext)
+
   const addToCartHandler = (productId) => {
-    dispatch(addToCart(productId, sizeValue), sizeValue);
+    dispatch(addToCart(productId, sizeValue));
+    
+    // dispatch(sizeValue)
     console.log(sizeValue);
   };
 
+  // function reduxSize(size) {
+  //   return {
+  //     type: 'REDUX_SIZE',
+  //     size
+  //   }
+  // }
+
   const onSizeChange = (event) => {
     setSizeValue(event.currentTarget.value);
+    // dispatch(addProductSize(productId, event.currentTarget.value));
+    // reduxSize.bind(null, event.currentTarget.value);
+    // dispatch(reduxSize(event.currentTarget.value));
+    console.log('test')
+    console.log(event.currentTarget.value);
   };
+
+  // const addProductSize = (size) => {
+  //   return {
+  //     type: `ADD_SIZE`,
+  //     payload: 'large',
+  //     // size
+  //   }
+  // }
 
   return (
     <div className="postPage post-page">

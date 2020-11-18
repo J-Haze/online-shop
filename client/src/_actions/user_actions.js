@@ -7,8 +7,15 @@ import {
   ADD_TO_CART_USER,
   GET_CART_ITEMS_USER,
   REMOVE_CART_ITEM_USER,
+  // ADD_SIZE,
+  // REDUX_SIZE
 } from "./types";
 import { USER_SERVER } from "../components/Config.js";
+
+// import React, { useContext } from "react";
+// import { SizeConext from "./client/src/components/views/DetailProductPage/DetailProductPage.js"}
+// const sizeContext = useContext(SizeContext);
+// const { sizeShared } = sizeContext;
 
 export function registerUser(dataToSubmit) {
   const request = axios
@@ -55,15 +62,59 @@ export function logoutUser() {
 }
 
 export function addToCart(_id, size) {
+  // console.log("here", sizeShared);
   const request = axios
     .get(`${USER_SERVER}/addToCart?productId=${_id}`)
-    .then((response) => response.data);
+    // .then((response) => response.data);
+
+    //   .then(
+    // .get(`${USER_SERVER}/addToCart?productId=${_id}/${size}`)
+    .then((response) => {
+      console.log("rd", response.data);
+      console.log("req", request);
+      console.log("atcu", ADD_TO_CART_USER);
+      // console.log("size:", sizeShared)
+    });
+
+  //     .then((response) => {
+  //       // (response.data)
+  //       response.data
+  //       console.log(response)
+  // })
+
+  //Need to pass size into "users.js" add to cart function
 
   return {
     type: ADD_TO_CART_USER,
     payload: request,
   };
 }
+
+// export function reduxSize(size) {
+//   console.log("inner", size)
+//   return {
+//       type: 'REDUX_SIZE',
+//       size
+//     }
+//   }
+
+export function addProductSize(_id, size) {
+  console.log("innerSize:", size)
+  const request = axios
+    .get(`${USER_SERVER}/addToCart?productId=${_id}`)
+    .then((response) => {
+      response.data.size = size;
+      console.log("rd2", response.data.size);
+      console.log("req2", request);
+      console.log("atcu2", ADD_TO_CART_USER);
+    });
+  
+      return {
+        type: `ADD_SIZE`,
+        payload: size,
+        // size
+      };
+    }
 
 export function getCartItems(cartItems, userCart) {
   const request = axios

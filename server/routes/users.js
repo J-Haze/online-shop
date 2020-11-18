@@ -4,6 +4,9 @@ const { User } = require("../models/User");
 const { Product } = require("../models/Product");
 const { auth } = require("../middleware/auth");
 
+// const 
+
+
 //=================================
 //             User
 //=================================
@@ -20,8 +23,16 @@ router.get("/auth", auth, (req, res) => {
     image: req.user.image,
     cart: req.user.cart,
     history: req.user.history,
+    size: req.user.size,
   });
 });
+
+// let sQuanityValue = 0;
+// let mQuanityValue = 0;
+// let lQuanityValue = 0;
+// let xlQuanityValue = 0;
+
+
 
 router.post("/register", (req, res) => {
   const user = new User(req.body);
@@ -75,7 +86,19 @@ router.get("/addToCart", auth, (req, res) => {
   User.findOne({ _id: req.user._id }, (err, userInfo) => {
     let duplicate = false;
 
-    console.log(userInfo);
+    // console.log(req.user._id)
+    // console.log("test")
+
+    let sQuanityValue = 0;
+    let mQuanityValue = 0;
+    let lQuanityValue = 0;
+    let xlQuanityValue = 0;
+
+    // getQuantities()
+
+    // console.log("Inner", size)
+
+    console.log("userInfo:", userInfo);
 
     userInfo.cart.forEach((item) => {
       if (item.id == req.query.productId) {
@@ -109,6 +132,10 @@ router.get("/addToCart", auth, (req, res) => {
             cart: {
               id: req.query.productId,
               quantity: 1,
+              sQuanity: 0,
+              mQuanity: 0,
+              lQuanity: 0,
+              xlQuanity: 0,
               date: Date.now(),
             },
           },

@@ -14,7 +14,7 @@ function ProductInfo(props) {
   }, [props.sizeValue]);
 
   const addToCartHandler = () => {
-    props.addToCart(props.detail._id);
+    props.addToCart(props.detail._id, props.sizeValue);
   };
 
   const sizes = [
