@@ -15,6 +15,7 @@ function ProductInfo(props) {
 
   const addToCartHandler = () => {
     props.addToCart(props.detail._id, props.sizeValue);
+    console.log("a2c size:", props.sizeValue);
   };
 
   const sizes = [

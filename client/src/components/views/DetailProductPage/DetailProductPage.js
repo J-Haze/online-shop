@@ -7,18 +7,20 @@ import { addToCart } from "../../../_actions/user_actions";
 import { addProductSize } from "../../../_actions/user_actions";
 import { useDispatch } from "react-redux";
 
-export const Context = createContext({});
+import SizeContext from "../../SizeContext";
+
+// export const Context = createContext({});
 
 // import { REDUX_SIZE } from "../../../../../client/src/_actions/types.js";
 // import { reduxSize } from "../../../_actions/user_actions";
 
 // import posts from "./size_reducer"
 
-function DetailProductPage(props) {
+function DetailProductPage(props, sizeValue) {
   const dispatch = useDispatch();
   const productId = props.match.params.productId;
   const [Product, setProduct] = useState([]);
-  const [sizeValue, setSizeValue] = useState(1);
+  // const [sizeValue, setSizeValue] = useState(1);
 
   // const sizes = [
   //   { key: 1, value: "S" },
@@ -38,11 +40,11 @@ function DetailProductPage(props) {
   // const sizeContext = useContext(sizeValue);
   // const sizeShared = sizeContext(sizeContext)
 
-  const addToCartHandler = (productId) => {
+  const addToCartHandler = (productId, sizeValue) => {
     dispatch(addToCart(productId, sizeValue));
     
     // dispatch(sizeValue)
-    console.log(sizeValue);
+    console.log("outer", sizeValue);
   };
 
   // function reduxSize(size) {
@@ -52,14 +54,14 @@ function DetailProductPage(props) {
   //   }
   // }
 
-  const onSizeChange = (event) => {
-    setSizeValue(event.currentTarget.value);
-    // dispatch(addProductSize(productId, event.currentTarget.value));
-    // reduxSize.bind(null, event.currentTarget.value);
-    // dispatch(reduxSize(event.currentTarget.value));
-    console.log('test')
-    console.log(event.currentTarget.value);
-  };
+  // const onSizeChange = (event) => {
+  //   setSizeValue(event.currentTarget.value);
+  //   // dispatch(addProductSize(productId, event.currentTarget.value));
+  //   // reduxSize.bind(null, event.currentTarget.value);
+  //   // dispatch(reduxSize(event.currentTarget.value));
+  //   console.log('test')
+  //   console.log(event.currentTarget.value);
+  // };
 
   // const addProductSize = (size) => {
   //   return {
@@ -82,13 +84,17 @@ function DetailProductPage(props) {
           <ProductImage detail={Product} />
         </Col>
         <Col lg={12} xs={24}>
-          <ProductInfo
-            addToCart={addToCartHandler}
-            detail={Product}
-            onSizeChange={onSizeChange}
-            sizeValue={sizeValue}
-            // sizes={sizes}
-          />
+          <SizeContext.Consumer>
+            {({ sizeValue, onSizeChange }) => (
+              <ProductInfo
+                addToCart={addToCartHandler}
+                detail={Product}
+                onSizeChange={onSizeChange}
+                sizeValue={sizeValue}
+                // sizes={sizes}
+              />
+            )}
+          </SizeContext.Consumer>
         </Col>
       </Row>
     </div>
