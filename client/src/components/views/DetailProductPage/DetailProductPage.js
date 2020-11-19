@@ -9,7 +9,6 @@ import { useDispatch } from "react-redux";
 
 import SizeContext from "../../SizeContext";
 
-
 function DetailProductPage(props, sizeValue) {
   const dispatch = useDispatch();
   const productId = props.match.params.productId;
@@ -25,6 +24,7 @@ function DetailProductPage(props, sizeValue) {
 
   const addToCartHandler = (productId, sizeValue) => {
     dispatch(addToCart(productId, sizeValue));
+    // dispatch(addToCart(productId));
     console.log("outer", sizeValue);
   };
 
@@ -42,12 +42,14 @@ function DetailProductPage(props, sizeValue) {
         </Col>
         <Col lg={12} xs={24}>
           <SizeContext.Consumer>
-            {({ sizeValue, onSizeChange }) => (
+            {({ sizeValue, onSizeChange, refresh, setRefresh }) => (
               <ProductInfo
                 addToCart={addToCartHandler}
                 detail={Product}
                 onSizeChange={onSizeChange}
                 sizeValue={sizeValue}
+                refresh={refresh}
+                setRefresh={setRefresh}
                 // sizes={sizes}
               />
             )}

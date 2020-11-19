@@ -10,6 +10,7 @@ import Footer from "./views/Footer/Footer";
 import UploadProductPage from "./views/UploadProductPage/UploadProductPage.js";
 import DetailProductPage from "./views/DetailProductPage/DetailProductPage.js";
 import CartPage from "./views/CartPage/CartPage";
+import HistoryPage from "./views/HistoryPage/HistoryPage";
 
 import SizeContext from "./SizeContext";
 
@@ -18,6 +19,16 @@ import SizeContext from "./SizeContext";
 //false  logged in user can't go inside
 
 function App() {
+  // const [cartLength, setCartLength] = useState(0);
+
+  // useEffect(() => {
+  //   if (user.userData != undefined && user.userData.cart != undefined) {
+  //     setCartLength(user.userData.cart.length);
+  //   }
+  // }, [user]);
+
+  const [refresh, setRefresh] = React.useState(true);
+
   const [sizeValue, setSizeValue] = React.useState(1);
 
   const sizes = [
@@ -36,17 +47,19 @@ function App() {
     console.log(event.currentTarget.value);
   };
 
-    const value = React.useMemo(
-      () => ({
-        sizeValue,
-        onSizeChange,
-      }),
-      [sizeValue]
-    );
+  const value = React.useMemo(
+    () => ({
+      sizeValue,
+      onSizeChange,
+      refresh,
+      setRefresh,
+    }),
+    [sizeValue]
+  );
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <NavBar />
+      <NavBar refresh={refresh} />
       <div
         style={{
           paddingTop: "69px",
@@ -73,6 +86,7 @@ function App() {
               component={Auth(DetailProductPage, null)}
             />
             <Route exact path="/user/cart" component={Auth(CartPage, true)} />
+            <Route exact path="/history" component={Auth(HistoryPage, true)} />
           </Switch>
         </SizeContext.Provider>
       </div>

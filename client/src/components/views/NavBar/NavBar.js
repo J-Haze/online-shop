@@ -4,7 +4,7 @@ import RightMenu from './Sections/RightMenu';
 import { Drawer, Button, Icon } from 'antd';
 import './Sections/Navbar.css';
 
-function NavBar() {
+function NavBar(props) {
   const [visible, setVisible] = useState(false)
 
   const showDrawer = () => {
@@ -43,7 +43,7 @@ function NavBar() {
           visible={visible}
         >
           <LeftMenu mode="inline" />
-          <RightMenu mode="inline" />
+          <RightMenu mode="inline" refresh={props.refresh}/>
         </Drawer>
       </div>
     </nav>

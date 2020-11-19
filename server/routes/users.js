@@ -85,15 +85,7 @@ router.get("/addToCart", auth, (req, res) => {
     let duplicate = false;
 
     let packString = req.query.productId;
-    console.log("pack inner0", packString);
     var packArr = packString.split("-");
-    console.log("pack inner", packArr);
-
-    console.log("req", req);
-    console.log("Inner0", packArr[0]);
-    console.log("Inner1", packArr[1]);
-
-    console.log("userInfo:", userInfo);
 
     userInfo.cart.forEach((item) => {
       if (item.id == packArr[0]) {
@@ -144,15 +136,10 @@ router.get("/addToCart", auth, (req, res) => {
             cart: {
               id: packArr[0],
               quantity: 1,
-              //  sQuantity: 0,
-              //  mQuantity: 0,
-              //  lQuantity: 0,
-              //  xlQuantity: 0,
               sQuantity: sQuantity,
               mQuantity: mQuantity,
               lQuantity: lQuantity,
               xlQuantity: xlQuantity,
-              // sizeInner: packArr[1],
               date: Date.now(),
             },
           },
@@ -287,12 +274,12 @@ router.post("/successBuy", auth, (req, res) => {
   );
 });
 
-// router.get("/getHistory", auth, (req, res) => {
-//   User.findOne({ _id: req.user._id }, (err, doc) => {
-//     let history = doc.history;
-//     if (err) return res.status(400).send(err);
-//     return res.status(200).json({ success: true, history });
-//   });
-// });
+router.get("/getHistory", auth, (req, res) => {
+  User.findOne({ _id: req.user._id }, (err, doc) => {
+    let history = doc.history;
+    if (err) return res.status(400).send(err);
+    return res.status(200).json({ success: true, history });
+  });
+});
 
 module.exports = router;

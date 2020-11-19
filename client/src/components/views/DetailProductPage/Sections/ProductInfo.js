@@ -4,6 +4,7 @@ import { Button, Descriptions } from "antd";
 function ProductInfo(props) {
   const [Product, setProduct] = useState({});
   const [sizeValue, setSizeValue] = useState(1);
+  const [refresh, setRefresh] = useState(true);
 
   useEffect(() => {
     setProduct(props.detail);
@@ -29,6 +30,7 @@ function ProductInfo(props) {
 
   const addToCartHandler = () => {
     props.addToCart(props.detail._id, props.sizeValue);
+    props.setRefresh(!refresh)
     alert(
       `${props.detail.title} (${
         sizesObj[props.sizeValue]

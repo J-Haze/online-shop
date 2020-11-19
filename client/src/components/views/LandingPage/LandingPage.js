@@ -164,7 +164,7 @@ function LandingPage() {
     <div id="landing-cont">
       <div id="landing-inner">
         <h2>
-          ACME Clothing Co.
+          Justin's Clothing Store
           {/* <Icon type="rocket" />{" "} */}
         </h2>
       </div>
