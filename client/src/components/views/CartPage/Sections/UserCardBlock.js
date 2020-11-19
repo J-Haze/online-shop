@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function UserCardBlock(props) {
   const renderCartImage = (images) => {
@@ -7,6 +7,15 @@ function UserCardBlock(props) {
       return `http://localhost:5000/${image}`;
     }
   };
+
+  // useEffect(() => {
+  //   effect
+  //   return () => {
+  //     cleanup
+  //   }
+  // }, [product])
+
+  console.log(props.products);
 
   const renderItems = () =>
     props.products &&
@@ -20,7 +29,35 @@ function UserCardBlock(props) {
           />
           <div>{product.title} </div>
         </td>
-        <td>{product.quantity} EA</td>
+        {/* <td>{product.quantity} EA</td> */}
+        {/* {product.sQuantity} (s) */}
+        <td>
+          <div className="flex-down">
+            {product.sQuantity > 0 ? (
+              <div>{product.sQuantity} Small</div>
+            ) : (
+              <div></div>
+            )}
+
+            {product.mQuantity > 0 ? (
+              <div>{product.mQuantity} Medium</div>
+            ) : (
+              <div></div>
+            )}
+
+            {product.lQuantity > 0 ? (
+              <div>{product.lQuantity} Large</div>
+            ) : (
+              <div></div>
+            )}
+
+            {product.xlQuantity > 0 ? (
+              <div>{product.xlQuantity} X-Large</div>
+            ) : (
+              <div></div>
+            )}
+          </div>
+        </td>
         <td>$ {product.price} </td>
         <td>
           <button onClick={() => props.removeItem(product._id)}>Remove </button>{" "}

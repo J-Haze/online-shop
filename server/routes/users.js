@@ -107,16 +107,12 @@ router.get("/addToCart", auth, (req, res) => {
 
     if (packArr[1] == 1) {
       sQuantity = 1;
-      console.log("packArr[1]");
-      console.log(sQuantity);
     } else if (packArr[1] == 2) {
       mQuantity = 1;
-      console.log("packArr[2]");
     } else if (packArr[1] == 3) {
-      console.log("packArr[3]");
+      lQuantity = 1;
     } else if (packArr[1] == 4) {
       xlQuantity = 1;
-      console.log("packArr[4]");
     } else {
       console.log("Size Error");
     }

@@ -65,15 +65,10 @@ export function addToCart(_id, size) {
   let pack = `${_id}-${size}`;
   console.log("pack", pack);
   const request = axios
-    // .get(`${USER_SERVER}/addToCart?productId=${_id}`)
-    // .get(`${USER_SERVER}/addToCart?productId=${_id}/:size=${size}`)
     .get(`${USER_SERVER}/addToCart?productId=${pack}`)
-    // .get(`${USER_SERVER}/addToCart?productId=${_id}/:{size}`)
-    // .get(`${USER_SERVER}/addToCart?productId=${_id}/?size=${size}`)
     .then((response) => {
       console.log("response.data:", response.data);
       console.log("here size:", size);
-      // console.log("here sizeValue", sizeValue)
     });
 
   return {
@@ -81,71 +76,6 @@ export function addToCart(_id, size) {
     payload: request,
   };
 }
-
-// export function addToCart(_id, size) {
-//   console.log("here", size);
-//   let newSize = 0;
-//   const request = axios
-//     // .get(`/api/product/products_by_id?id=${cartItems}&type=array`)
-//     // .get(`/api/users/removeFromCart?_id=${_id}`)
-//     .get(`${USER_SERVER}/addToCart?productId=${_id}`)
-//     .then((response) => {
-//       response.data.cart.forEach((cartItem) => {
-//         response.data.cartDetail.forEach((productDetail, i) => {
-//           //   console.log("cartDetail", productDetail)
-//           console.log("cartItem", cartItem);
-
-//           if (cartItem.id === productDetail._id) {
-//             console.log("match", size);
-//             if (size == 1) {
-//               console.log("blah:", cartItem.sQuantity);
-//               newSize = cartItem.sQuantity + 1;
-//               console.log("newSize:", newSize);
-//             }
-//           }
-//         });
-//       });
-//     })
-
-//     .then(
-//       axios
-//         .get(`${USER_SERVER}/addToCart?productId=${_id}`)
-//         .then((res) => res.data)
-//     );
-
-//     // .get(`${USER_SERVER}/addToCart?productId=${_id}`)
-//     // .then((response) => response.data);
-
-//     //   .then(
-//     // .get(`${USER_SERVER}/addToCart?productId=${_id}/${size}`)
-//     // .then((response) => {
-//     //   console.log("rd", response.data);
-//     //   console.log("req", request);
-//     //   console.log("atcu", ADD_TO_CART_USER);
-//     //   // console.log("size:", sizeShared)
-//     // });
-
-//   //     .then((response) => {
-//   //       // (response.data)
-//   //       response.data
-//   //       console.log(response)
-//   // })
-
-//   //Need to pass size into "users.js" add to cart function
-
-//   return {
-//     type: ADD_TO_CART_USER,
-//     payload: request,
-//   };
-// }
-
-// export function reduxSize(size) {
-//   console.log("inner", size)
-//   return {
-//       type: 'REDUX_SIZE',
-//       size
-//     }
-//   }
 
 export function addProductSize(_id, size) {
   console.log("innerSize:", size);
@@ -173,9 +103,14 @@ export function getCartItems(cartItems, userCart) {
       // We need to add quantity data to Product Information that come from Product Collection.
 
       userCart.forEach((cartItem) => {
+        console.log("new", cartItem);
         response.data.forEach((productDetail, i) => {
           if (cartItem.id === productDetail._id) {
             response.data[i].quantity = cartItem.quantity;
+            response.data[i].sQuantity = cartItem.sQuantity;
+            response.data[i].mQuantity = cartItem.mQuantity;
+            response.data[i].lQuantity = cartItem.lQuantity;
+            response.data[i].xlQuantity = cartItem.xlQuantity;
           }
         });
       });

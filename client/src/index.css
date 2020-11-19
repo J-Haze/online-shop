@@ -211,3 +211,11 @@ tr:nth-child(even) {
   margin-bottom: 5px;
   font-weight: bold;
 }
+
+.flex-down{
+  display: flex;
+  flex-direction: column;
+}
+
+
+
