@@ -6,9 +6,7 @@ import {
   ADD_TO_CART_USER,
   GET_CART_ITEMS_USER,
   REMOVE_CART_ITEM_USER,
-  // ADD_SIZE,
-  // REDUX_SIZE,
-  // ON_SUCCESS_BUY_USER,
+  ON_SUCCESS_BUY_USER,
 } from "../_actions/types";
 
 export default function (state = {}, action) {
@@ -43,28 +41,16 @@ export default function (state = {}, action) {
           cart: action.payload.cart,
         },
       };
-    // case ON_SUCCESS_BUY_USER:
-    //   return {
-    //     ...state,
-    //     userData: {
-    //       ...state.userData,
-    //       cart: action.payload.cart,
-    //     },
-    //     cartDetail: action.payload.cartDetail,
-    //   };
-
-    // case ADD_SIZE:
-    //   return {
-    //     ...state,
-    //     userData: {
-    //       ...state.userData,
-    //       size: action.payload,
-    //     },
-    //   };
-
-    // case REDUX_SIZE:
-    //   console.log("redux state")
-    //   return state;
+    
+    case ON_SUCCESS_BUY_USER:
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          cart: action.payload.cart,
+        },
+        cartDetail: action.payload.cartDetail,
+      };
 
     default:
       return state;

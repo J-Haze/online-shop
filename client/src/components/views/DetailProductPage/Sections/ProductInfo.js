@@ -13,17 +13,28 @@ function ProductInfo(props) {
     setSizeValue(props.sizeValue);
   }, [props.sizeValue]);
 
-  const addToCartHandler = () => {
-    props.addToCart(props.detail._id, props.sizeValue);
-    console.log("a2c size:", props.sizeValue);
-  };
-
   const sizes = [
     { key: 1, value: "S" },
     { key: 2, value: "M" },
     { key: 3, value: "L" },
     { key: 4, value: "XL" },
   ];
+
+  const sizesObj = {
+    1: "Small",
+    2: "Mediume",
+    3: "Large",
+    4: "X-Large",
+  };
+
+  const addToCartHandler = () => {
+    props.addToCart(props.detail._id, props.sizeValue);
+    alert(
+      `${props.detail.title} (${
+        sizesObj[props.sizeValue]
+      }) was added to your cart!`
+    );
+  };
 
   return (
     <div>
@@ -37,7 +48,7 @@ function ProductInfo(props) {
       </Descriptions>
 
       <div>
-        <div id="select-size" >Select Size:</div>
+        <div id="select-size">Select Size:</div>
         <select onChange={props.onSizeChange} value={sizeValue}>
           {sizes.map((item) => (
             <option key={item.key} value={item.key}>

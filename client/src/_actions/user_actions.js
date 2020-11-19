@@ -7,8 +7,7 @@ import {
   ADD_TO_CART_USER,
   GET_CART_ITEMS_USER,
   REMOVE_CART_ITEM_USER,
-  // ADD_SIZE,
-  // REDUX_SIZE
+  ON_SUCCESS_BUY_USER,
 } from "./types";
 import { USER_SERVER } from "../components/Config.js";
 
@@ -77,23 +76,23 @@ export function addToCart(_id, size) {
   };
 }
 
-export function addProductSize(_id, size) {
-  console.log("innerSize:", size);
-  const request = axios
-    .get(`${USER_SERVER}/addToCart?productId=${_id}`)
-    .then((response) => {
-      response.data.size = size;
-      console.log("rd2", response.data.size);
-      console.log("req2", request);
-      console.log("atcu2", ADD_TO_CART_USER);
-    });
+// export function addProductSize(_id, size) {
+//   console.log("innerSize:", size);
+//   const request = axios
+//     .get(`${USER_SERVER}/addToCart?productId=${_id}`)
+//     .then((response) => {
+//       response.data.size = size;
+//       console.log("rd2", response.data.size);
+//       console.log("req2", request);
+//       console.log("atcu2", ADD_TO_CART_USER);
+//     });
 
-  return {
-    type: `ADD_SIZE`,
-    payload: size,
-    // size
-  };
-}
+//   return {
+//     type: `ADD_SIZE`,
+//     payload: size,
+//     // size
+//   };
+// }
 
 export function getCartItems(cartItems, userCart) {
   const request = axios
@@ -143,3 +142,16 @@ export function removeCartItem(id) {
     payload: request,
   };
 }
+
+
+export function onSuccessBuy(data) {
+  const request = axios
+    .post(`${USER_SERVER}/successBuy`, data)
+    .then((response) => response.data);
+
+  return {
+    type: ON_SUCCESS_BUY_USER,
+    payload: request,
+  };
+}
+
