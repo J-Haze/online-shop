@@ -19,12 +19,6 @@ function RightMenu(props) {
     });
   };
 
-  // console.log("user.userData", user.userData);
-  // console.log("user.userData.cart", user.userData.cart);
-  // console.log("user.userData.cart.length", user.userData.cart.length);
-
-  // if (user.userData)
-
   const [cartLength, setCartLength] = useState(0);
 
   useEffect(() => {
@@ -55,15 +49,19 @@ function RightMenu(props) {
           <a href="/product/upload">Upload</a>
         </Menu.Item>
 
-        <Menu.Item key="cart" id="cart-cont">
-          {/* <Badge count={user.userData && user.userData.cart.length}> */}
+        {props.drawer ? <Menu.Item key="cart" id="cart-cont-drawer">
           <Badge count={user.userData && cartLength}>
-            {/* <Badge count={1}> */}
-            <a href="/user/cart" id="cart-badge">
-              <Icon type="shopping-cart" id="cart-icon" />
+            <a href="/user/cart" id="cart-badge-drawer">
+              <Icon type="shopping-cart" id="cart-icon-drawer" />
             </a>
           </Badge>
-        </Menu.Item>
+        </Menu.Item> : <Menu.Item key="cart" id="cart-cont">
+            <Badge count={user.userData && cartLength}>
+              <a href="/user/cart" id="cart-badge">
+                <Icon type="shopping-cart" id="cart-icon" />
+              </a>
+            </Badge>
+          </Menu.Item>}
 
         <Menu.Item key="logout">
           <a onClick={logoutHandler}>Logout</a>

@@ -25,7 +25,7 @@ function NavBar(props) {
           <LeftMenu mode="horizontal" />
         </div>
         <div className="menu_rigth">
-          <RightMenu mode="horizontal" />
+          <RightMenu mode="horizontal" drawer={false}/>
         </div>
         <Button
           className="menu__mobile-button"
@@ -35,7 +35,7 @@ function NavBar(props) {
           <Icon type="align-right" />
         </Button>
         <Drawer
-          title="Basic Drawer"
+          title="Menu"
           placement="right"
           className="menu_drawer"
           closable={false}
@@ -43,7 +43,7 @@ function NavBar(props) {
           visible={visible}
         >
           <LeftMenu mode="inline" />
-          <RightMenu mode="inline" refresh={props.refresh}/>
+          <RightMenu mode="inline" refresh={props.refresh} drawer={true}/>
         </Drawer>
       </div>
     </nav>

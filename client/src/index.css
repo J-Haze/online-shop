@@ -178,12 +178,39 @@ tr:nth-child(even) {
 
 #cart-badge {
   margin-right: -22px;
+  margin-top: 15px;
   color: "#667777";
+  /* padding-top: 115px; */
+  font-size: 1em;
 }
 
 #cart-icon {
-  font-size: 30px;
+  font-size: 25px;
   margin-bottom: 3px;
+
+  /* margin-top: 5px; */
+}
+
+#cart-cont-drawer {
+  /* padding-bottom: 3px; */
+  /* border: 1px solid black; */
+  padding-top: 10px;
+}
+
+#cart-badge-drawer {
+  margin-right: -10px;
+  margin-top: 15px;
+  /* color: blue; */
+  color: "#667777";
+  /* padding-top: 115px; */
+  /* font-size: .5em; */
+}
+
+#cart-icon-drawer {
+  font-size: 25px;
+  margin-bottom: 15px;
+
+  /* margin-top: 5px; */
 }
 
 #cart-page {
@@ -212,10 +239,7 @@ tr:nth-child(even) {
   font-weight: bold;
 }
 
-.flex-down{
+.flex-down {
   display: flex;
   flex-direction: column;
 }
-
-
-
