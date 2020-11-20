@@ -3,8 +3,6 @@ const router = express.Router();
 const { Product } = require("../models/Product");
 const multer = require("multer");
 
-// var storage;
-
 const { auth } = require("../middleware/auth");
 
 var storage = multer.diskStorage({
@@ -124,7 +122,6 @@ router.get("/products_by_id", (req, res) => {
 
   console.log("productIds", productIds);
 
-  //we need to find the product information that belong to product Id
   Product.find({ _id: { $in: productIds } })
     .populate("writer")
     .exec((err, product) => {

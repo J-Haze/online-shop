@@ -41,8 +41,6 @@ input.error {
   margin-top: -12px;
 }
 
-/* On my own */
-
 #upload-cont {
   max-width: 700px;
   margin: 2rem auto;
@@ -59,8 +57,6 @@ input.error {
 }
 
 #add-images {
-  /* justify-content: center; */
-  /* text-align: center; */
   padding-left: 110px;
 }
 
@@ -88,8 +84,6 @@ input.error {
 }
 
 #scroll-img {
-  /* width: 300px; */
-  /* min-width: 300px; */
   height: 240px;
   max-height: 240px;
 }
@@ -103,9 +97,11 @@ input.error {
   text-align: center;
 }
 
-#landing-title{
+#landing-title {
   margin-top: -15px;
   margin-bottom: 30px;
+  color: #1890ff;
+  font-weight: bold;
 }
 
 #products-list {
@@ -129,9 +125,6 @@ input.error {
 .product-card {
   min-width: 183px;
   max-width: 183px;
-  /* align-content: center; */
-  /* margin-left: 5px;
-  margin-right: 5px; */
 }
 
 #load-button-cont {
@@ -185,37 +178,27 @@ tr:nth-child(even) {
   margin-right: -22px;
   margin-top: 15px;
   color: "#667777";
-  /* padding-top: 115px; */
   font-size: 1em;
 }
 
 #cart-icon {
   font-size: 25px;
   margin-bottom: 3px;
-
-  /* margin-top: 5px; */
 }
 
 #cart-cont-drawer {
-  /* padding-bottom: 3px; */
-  /* border: 1px solid black; */
   padding-top: 10px;
 }
 
 #cart-badge-drawer {
   margin-right: -10px;
   margin-top: 15px;
-  /* color: blue; */
   color: "#667777";
-  /* padding-top: 115px; */
-  /* font-size: .5em; */
 }
 
 #cart-icon-drawer {
   font-size: 25px;
   margin-bottom: 15px;
-
-  /* margin-top: 5px; */
 }
 
 #cart-page {
@@ -256,18 +239,12 @@ tr:nth-child(even) {
 }
 
 #logo {
-  /* border: 1px solid black; */
   display: flex;
   justify-content: center;
   text-align: center;
   font-size: 2em;
   font-weight: bold;
-  /* height: 100%; */
 }
-
-/* .menu__logo{
-  border: 1px solid black;
-} */
 
 #footer {
   height: 80px;
@@ -278,17 +255,16 @@ tr:nth-child(even) {
   font-size: 1 rem;
 }
 
-
-#history-page{
+#history-page {
   width: 80%;
   margin: 3rem auto;
 }
 
-#history-cont{
+#history-cont {
   text-align: center;
 }
 
-#login-error{
+#login-error {
   color: #ff0000bf;
   font-size: 0.7rem;
   border: 1px solid;
@@ -296,6 +272,6 @@ tr:nth-child(even) {
   border-radius: 10px;
 }
 
-
-
-
+#register-form {
+  min-width: 375px;
+}

@@ -27,11 +27,6 @@ router.get("/auth", auth, (req, res) => {
   });
 });
 
-// let sQuantityValue = 0;
-// let mQuantityValue = 0;
-// let lQuantityValue = 0;
-// let xlQuantityValue = 0;
-
 router.post("/register", (req, res) => {
   const user = new User(req.body);
 
@@ -235,9 +230,6 @@ router.post("/successBuy", auth, (req, res) => {
 
         //3. Increase the amount of number for the sold information
 
-        //first We need to know how many product were sold in this transaction for
-        // each of products
-
         let products = [];
         doc.product.forEach((item) => {
           products.push({ id: item.id, quantity: item.quantity });
@@ -269,6 +261,8 @@ router.post("/successBuy", auth, (req, res) => {
             });
           }
         );
+
+        //Add an "Out of Stock" feature
       });
     }
   );
