@@ -39,7 +39,6 @@ function LandingPage() {
           setProducts(response.data.products);
         }
         setPostSize(response.data.postSize);
-        console.log("postSize", postSize);
       } else {
         alert("Failed to fetch product data");
       }
@@ -98,7 +97,6 @@ function LandingPage() {
         array = data[key].array;
       }
     }
-    console.log("array", array);
     return array;
   };
 
@@ -111,7 +109,6 @@ function LandingPage() {
         array = data[key].array;
       }
     }
-    console.log("array", array);
     return array;
   };
 
@@ -119,7 +116,6 @@ function LandingPage() {
     const newFilters = { ...Filters };
 
     newFilters[categoryType] = filters;
-    console.log("CategoryType", categoryType);
 
     if (categoryType === "price") {
       let priceValues = handlePrice(filters);
@@ -130,8 +126,6 @@ function LandingPage() {
       let genderValues = handleGender(filters);
       newFilters[categoryType] = genderValues;
     }
-
-    console.log("newFilters:", newFilters);
 
     showFilteredResults(newFilters);
     setFilters(newFilters);

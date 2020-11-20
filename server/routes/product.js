@@ -65,7 +65,6 @@ router.post("/getProducts", (req, res) => {
   let term = req.body.searchTerm;
 
   for (let key in req.body.filters) {
-    console.log("key", key);
     if (req.body.filters[key].length > 0) {
       if (key === "price") {
         findArgs[key] = {
@@ -110,8 +109,6 @@ router.get("/products_by_id", (req, res) => {
   let type = req.query.type;
   let productIds = req.query.id;
 
-  console.log("req.query.id", req.query.id);
-
   if (type === "array") {
     let ids = req.query.id.split(",");
     productIds = [];
@@ -119,8 +116,6 @@ router.get("/products_by_id", (req, res) => {
       return item;
     });
   }
-
-  console.log("productIds", productIds);
 
   Product.find({ _id: { $in: productIds } })
     .populate("writer")

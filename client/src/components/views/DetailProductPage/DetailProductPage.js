@@ -23,7 +23,6 @@ function DetailProductPage(props, sizeValue) {
 
   const addToCartHandler = (productId, sizeValue) => {
     dispatch(addToCart(productId, sizeValue));
-    console.log("outer", sizeValue);
   };
 
   return (

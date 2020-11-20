@@ -57,13 +57,9 @@ export function logoutUser() {
 
 export function addToCart(_id, size) {
   let pack = `${_id}-${size}`;
-  console.log("pack", pack);
   const request = axios
     .get(`${USER_SERVER}/addToCart?productId=${pack}`)
-    .then((response) => {
-      console.log("response.data:", response.data);
-      console.log("here size:", size);
-    });
+    .then((response) => response.data);
 
   return {
     type: ADD_TO_CART_USER,
@@ -76,7 +72,6 @@ export function getCartItems(cartItems, userCart) {
     .get(`/api/product/products_by_id?id=${cartItems}&type=array`)
     .then((response) => {
       userCart.forEach((cartItem) => {
-        console.log("new", cartItem);
         response.data.forEach((productDetail, i) => {
           if (cartItem.id === productDetail._id) {
             response.data[i].quantity = cartItem.quantity;

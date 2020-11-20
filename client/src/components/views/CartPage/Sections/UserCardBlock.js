@@ -8,8 +8,6 @@ function UserCardBlock(props) {
     }
   };
 
-  console.log(props.products);
-
   const renderItems = () =>
     props.products &&
     props.products.map((product) => (

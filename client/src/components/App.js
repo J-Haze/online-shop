@@ -27,8 +27,6 @@ function App() {
 
   const onSizeChange = (event) => {
     setSizeValue(event.currentTarget.value);
-    console.log("test");
-    console.log(event.currentTarget.value);
   };
 
   const value = React.useMemo(
