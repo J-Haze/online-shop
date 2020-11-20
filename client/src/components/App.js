@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 import Auth from "../hoc/auth";
-// pages for this product
+
 import LandingPage from "./views/LandingPage/LandingPage.js";
 import LoginPage from "./views/LoginPage/LoginPage.js";
 import RegisterPage from "./views/RegisterPage/RegisterPage.js";
@@ -14,21 +14,8 @@ import HistoryPage from "./views/HistoryPage/HistoryPage";
 
 import SizeContext from "./SizeContext";
 
-//null   Anyone Can go inside
-//true   only logged in user can go inside
-//false  logged in user can't go inside
-
 function App() {
-  // const [cartLength, setCartLength] = useState(0);
-
-  // useEffect(() => {
-  //   if (user.userData != undefined && user.userData.cart != undefined) {
-  //     setCartLength(user.userData.cart.length);
-  //   }
-  // }, [user]);
-
   const [refresh, setRefresh] = React.useState(true);
-
   const [sizeValue, setSizeValue] = React.useState(1);
 
   const sizes = [
@@ -40,9 +27,6 @@ function App() {
 
   const onSizeChange = (event) => {
     setSizeValue(event.currentTarget.value);
-    // dispatch(addProductSize(productId, event.currentTarget.value));
-    // reduxSize.bind(null, event.currentTarget.value);
-    // dispatch(reduxSize(event.currentTarget.value));
     console.log("test");
     console.log(event.currentTarget.value);
   };
@@ -56,6 +40,10 @@ function App() {
     }),
     [sizeValue]
   );
+
+  //null   Anyone Can go inside
+  //true   only logged in user can go inside
+  //false  logged in user can't go inside
 
   return (
     <Suspense fallback={<div>Loading...</div>}>

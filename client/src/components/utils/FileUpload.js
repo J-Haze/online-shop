@@ -19,20 +19,21 @@ function FileUpload(props) {
           setImages([...images, response.data.image]);
           props.refresh([...images, response.data.image]);
         } else {
-          alert("Failed to save image to server.")
+          alert("Failed to save image to server.");
         }
-      })
-    };
-    
-    const onDelete = (image) => {
-        const currentIndex = images.indexOf(image);
+      }
+    );
+  };
 
-        let newImages = [...images]
-        newImages.splice(currentIndex, 1)
+  const onDelete = (image) => {
+    const currentIndex = images.indexOf(image);
 
-        setImages(newImages)
-        props.refresh(newImages)
-    }
+    let newImages = [...images];
+    newImages.splice(currentIndex, 1);
+
+    setImages(newImages);
+    props.refresh(newImages);
+  };
 
   return (
     <div id="upload-component">
@@ -41,22 +42,22 @@ function FileUpload(props) {
           <div id="dropzone-inner" {...getRootProps()}>
             {console.log("getRootProps", { ...getRootProps() })}
             {console.log("getInputProps", { ...getInputProps() })}
-
             <input {...getInputProps()} />
-
             <Icon type="plus" id="dropzone-icon" />
           </div>
         )}
       </Dropzone>
 
-          
-
-          <div id="upload-scroll">
-              {images.map((image, index) => (
-                  <div onClick={() => onDelete(image)}>
-                      <img id="scroll-img" src={`http://localhost:5000/${image}`} alt={`productImg-${index}`}/>
-                      </div>
-              ))}
+      <div id="upload-scroll">
+        {images.map((image, index) => (
+          <div onClick={() => onDelete(image)}>
+            <img
+              id="scroll-img"
+              src={`http://localhost:5000/${image}`}
+              alt={`productImg-${index}`}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

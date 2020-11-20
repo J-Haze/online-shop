@@ -12,16 +12,10 @@ const categories = [
   { key: 3, value: "Pants" },
 ];
 
-// const genders = [
-//   { key: 1, value: "Men's" },
-//   { key: 2, value: "Women's" },
-// ];
-
 function UploadProductPage(props) {
   const [titleValue, setTitleValue] = useState("");
   const [descriptionValue, setDescriptionValue] = useState("");
   const [priceValue, setPriceValue] = useState("");
-  const [menChecked, setMenChecked] = useState(true);
   const [genderValue, setGenderValue] = useState(1);
   const [categoryValue, setCategoryValue] = useState(1);
   const [smallValue, setSmallValue] = useState(0);
@@ -44,8 +38,6 @@ function UploadProductPage(props) {
   };
 
   const onCheck = (selection) => {
-    // setMenChecked(!menChecked);
-    // menChecked ? setGenderValue("men") : setGenderValue("women");
     setGenderValue(selection);
   };
 
@@ -132,9 +124,7 @@ function UploadProductPage(props) {
           name="gender"
           value={1}
           onChange={() => onCheck(1)}
-          //   checked={menChecked}
           checked={genderValue == 1}
-          //   disabled="true"
         />
         <label for="men">Men's</label>
 

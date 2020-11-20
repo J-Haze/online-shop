@@ -59,7 +59,6 @@ function ProductInfo(props) {
           ))}
         </select>
       </div>
-
       <br />
       <br />
       <br />

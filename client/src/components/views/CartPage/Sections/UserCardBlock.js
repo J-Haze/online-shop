@@ -8,13 +8,6 @@ function UserCardBlock(props) {
     }
   };
 
-  // useEffect(() => {
-  //   effect
-  //   return () => {
-  //     cleanup
-  //   }
-  // }, [product])
-
   console.log(props.products);
 
   const renderItems = () =>
@@ -29,8 +22,6 @@ function UserCardBlock(props) {
           />
           <div>{product.title} </div>
         </td>
-        {/* <td>{product.quantity} EA</td> */}
-        {/* {product.sQuantity} (s) */}
         <td>
           <div className="flex-down">
             {product.sQuantity > 0 ? (
@@ -71,7 +62,6 @@ function UserCardBlock(props) {
         <thead>
           <tr>
             <th>Product</th>
-            {/* <th>Product</th> */}
             <th>Product Quantity</th>
             <th>Product Price</th>
             <th>Remove from Cart</th>

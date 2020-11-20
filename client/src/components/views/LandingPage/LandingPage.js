@@ -59,14 +59,6 @@ function LandingPage() {
 
     getProducts(newVariables);
     setSkip(newSkip);
-
-    //   console.log({ newSkip })
-    //   console.log({ skip });
-    // //   console.log({ newLimit });
-    //   console.log({ limit });
-
-    // console.log("PS:", postSize);
-    // console.log("limit", limit);
   };
 
   const renderCards = Products.map((product, index) => {
@@ -92,7 +84,6 @@ function LandingPage() {
       skip: 0,
       limit: limit,
       filters: filters,
-      //   loadMore: false,
     };
     getProducts(newVariables);
     setSkip(0);
@@ -163,10 +154,9 @@ function LandingPage() {
   return (
     <div id="landing-cont">
       <div id="landing-inner">
-        <h2>
+        <h1 id="landing-title">
           Justin's Clothing Store
-          {/* <Icon type="rocket" />{" "} */}
-        </h2>
+        </h1>
       </div>
 
       <Row gutter={[16, 16]}>

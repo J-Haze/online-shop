@@ -19,7 +19,6 @@ function ProductImage(props) {
       }
     }, [props.detail]);
 
-
     return (
         <div>
             <ImageGallery items={Images}/>

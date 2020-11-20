@@ -76,6 +76,7 @@ function CartPage(props) {
   return (
     <div id="cart-page">
       <h1> My Cart</h1>
+      
       <div>
         <UserCardBlock
           products={props.user.cartDetail}
@@ -96,8 +97,6 @@ function CartPage(props) {
           </div>
         )}
       </div>
-
-      {/* Paypal Button */}
 
       {ShowTotal && (
         <Paypal

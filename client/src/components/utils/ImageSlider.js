@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Carousel } from "antd";
 
 function ImageSlider(props) {
-  const [autoplayState, setAutoplayState] = useState(true);
   return (
     <div>
           <Carousel autoplay>
@@ -12,7 +11,6 @@ function ImageSlider(props) {
                 src={`http://localhost:5000/${image}`}
                 alt="productImage"
                 id="carousel-image"
-                // onMouseEnter={setAutoplayState(false)}
             />
           </div>
         ))}

@@ -4,7 +4,6 @@ import { Row, Col } from "antd";
 import ProductImage from "./Sections/ProductImage";
 import ProductInfo from "./Sections/ProductInfo";
 import { addToCart } from "../../../_actions/user_actions";
-import { addProductSize } from "../../../_actions/user_actions";
 import { useDispatch } from "react-redux";
 
 import SizeContext from "../../SizeContext";
@@ -24,7 +23,6 @@ function DetailProductPage(props, sizeValue) {
 
   const addToCartHandler = (productId, sizeValue) => {
     dispatch(addToCart(productId, sizeValue));
-    // dispatch(addToCart(productId));
     console.log("outer", sizeValue);
   };
 
@@ -33,7 +31,6 @@ function DetailProductPage(props, sizeValue) {
       <div className="product-detail-cont">
         <h1>{Product.title}</h1>
       </div>
-
       <br />
 
       <Row gutter={[16, 16]}>
@@ -50,7 +47,6 @@ function DetailProductPage(props, sizeValue) {
                 sizeValue={sizeValue}
                 refresh={refresh}
                 setRefresh={setRefresh}
-                // sizes={sizes}
               />
             )}
           </SizeContext.Consumer>

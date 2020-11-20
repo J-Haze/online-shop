@@ -103,6 +103,11 @@ input.error {
   text-align: center;
 }
 
+#landing-title{
+  margin-top: -15px;
+  margin-bottom: 30px;
+}
+
 #products-list {
   display: flex;
   height: 300px;
@@ -243,3 +248,54 @@ tr:nth-child(even) {
   display: flex;
   flex-direction: column;
 }
+
+#menu-id {
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+}
+
+#logo {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  /* height: 100%; */
+}
+
+/* .menu__logo{
+  border: 1px solid black;
+} */
+
+#footer {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1 rem;
+}
+
+
+#history-page{
+  width: 80%;
+  margin: 3rem auto;
+}
+
+#history-cont{
+  text-align: center;
+}
+
+#login-error{
+  color: #ff0000bf;
+  font-size: 0.7rem;
+  border: 1px solid;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+
+
+

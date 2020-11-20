@@ -11,11 +11,6 @@ import {
 } from "./types";
 import { USER_SERVER } from "../components/Config.js";
 
-// import React, { useContext } from "react";
-// import { SizeConext from "./client/src/components/views/DetailProductPage/DetailProductPage.js"}
-// const sizeContext = useContext(SizeContext);
-// const { sizeShared } = sizeContext;
-
 export function registerUser(dataToSubmit) {
   const request = axios
     .post(`${USER_SERVER}/register`, dataToSubmit)
@@ -76,31 +71,10 @@ export function addToCart(_id, size) {
   };
 }
 
-// export function addProductSize(_id, size) {
-//   console.log("innerSize:", size);
-//   const request = axios
-//     .get(`${USER_SERVER}/addToCart?productId=${_id}`)
-//     .then((response) => {
-//       response.data.size = size;
-//       console.log("rd2", response.data.size);
-//       console.log("req2", request);
-//       console.log("atcu2", ADD_TO_CART_USER);
-//     });
-
-//   return {
-//     type: `ADD_SIZE`,
-//     payload: size,
-//     // size
-//   };
-// }
-
 export function getCartItems(cartItems, userCart) {
   const request = axios
     .get(`/api/product/products_by_id?id=${cartItems}&type=array`)
     .then((response) => {
-      //Make CartDetail inside Redux Store
-      // We need to add quantity data to Product Information that come from Product Collection.
-
       userCart.forEach((cartItem) => {
         console.log("new", cartItem);
         response.data.forEach((productDetail, i) => {
@@ -143,7 +117,6 @@ export function removeCartItem(id) {
   };
 }
 
-
 export function onSuccessBuy(data) {
   const request = axios
     .post(`${USER_SERVER}/successBuy`, data)
@@ -154,4 +127,3 @@ export function onSuccessBuy(data) {
     payload: request,
   };
 }
-
