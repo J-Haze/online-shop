@@ -19,7 +19,7 @@ const connect = mongoose.connect(config.mongoURI,
 
 app.use(cors())
 
-//to not get any deprecation warning or error
+//to lget any deprecation warning or error
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));
 //to get json data
