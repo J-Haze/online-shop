@@ -1,5 +1,5 @@
-Site Demo: https://justins-online-shop.herokuapp.com/
+Online Shop App- Clothing Store Example
 
-Online Shop App created by Justin Hazelton
+App Demo: https://justins-online-shop.herokuapp.com/
 
-MERN Stack
+MERN Stack, deployed on Heroku
