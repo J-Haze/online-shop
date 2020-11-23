@@ -14,8 +14,8 @@ App currently shows a clothing store, but the framework could be used for any ty
 ### Features: ###
 
 * App makes it easy for shoppers to purchase items
- * Shoppers can search for products and easily add them to their cart
- * Shoppers can purchase items in their cart, using PayPal Secure Checkout
+  * Shoppers can search for products and easily add them to their cart
+  * Shoppers can purchase items in their cart, using PayPal Secure Checkout
 * Filter items by various categories, and price
 * Search for items using the searchbar
 * Click on items to visit the Product Detail Page and view specifics about the product
