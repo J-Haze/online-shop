@@ -6,6 +6,7 @@ MERN Stack, deployed on Heroku
 
 ### Purpose: ###
 Showcase my ability to create a full stack application. The app utilizes a MERN stack.
+
 App currently shows a clothing store, but the framework could be used for any time of store.
 
 ### Features: ###
@@ -32,7 +33,7 @@ App currently shows a clothing store, but the framework could be used for any ti
 
 ### Pictures: ###
 
-Main Page:
+####Main Page:####
 ![Image of App](./ReadMe-Images/ReadMe1.png)
 
 Shoppers can filter items by Category, Gender, and Price:
