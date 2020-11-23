@@ -1,6 +1,6 @@
 ## Online Shop App
 Online Store App, compatible for any type of store. 
-Allows Admin to upload items, and for shoppers to easy search items and securely purchase items in their cart.
+<br/> Allows Admin to upload items, and for shoppers to easy search items and securely purchase items in their cart.
 
 MERN Stack, deployed on Heroku
 
