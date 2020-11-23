@@ -13,13 +13,17 @@ App currently shows a clothing store, but the framework could be used for any ti
 
 ### Features: ###
 
-* Create To-Do's
-  * Set Priority, Description, & Due Date
-* Cross off To-Do's as you complete them
-* Seperate To-Do's by Project
-* Delete To-Do's or Projects
-* View all To-Do's or view them by project
-* Edit To-Do's after they've been made
+* App makes it easy for shoppers to purchase items
+ * Shoppers can search for products and easily add them to their cart
+ * Shoppers can purchase items in their cart, using PayPal Secure Checkout
+* Filter items by various categories, and price
+* Search for items using the searchbar
+* Click on items to visit the Product Detail Page and view specifics about the product
+* Easily accesible shopping cart where shopper can see their collection of items ready to purchase
+* User authentication allows for user specific carts, purchase history, and admin privledges
+* Users with admin access can upload new products to the site, using the Upload Product Page
+* Shoppers can easily view thier purhcase history
+* Demo Page displays a clothing store, but can easily be adapted to any type of product
 
 ### Built With: ###
 
