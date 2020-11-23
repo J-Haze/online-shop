@@ -1,5 +1,5 @@
 ## Online Shop App
-Online Store App with item search, item filtering, user authentication, PayPal Checkout, and more. 
+Online Store App with product search, product filtering, user authentication, PayPal Checkout, and more. 
 <br/> Allows Admin to upload items, and for shoppers to easy search items and securely purchase items in their cart.
 
 MERN Stack, deployed on Heroku
@@ -9,7 +9,7 @@ MERN Stack, deployed on Heroku
 ### Purpose: ###
 Showcase my ability to create a full stack application. The app utilizes a MERN stack.
 
-App currently shows a clothing store, but the framework could be used for any time of store.
+App currently shows a clothing store, but the framework could be used for any type of store.
 
 ### Features: ###
 
