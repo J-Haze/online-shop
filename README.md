@@ -1,5 +1,5 @@
 ## Online Shop App
-Online Store App that allows the Admin to upload items
+Online Store App, compatible for any type of store. Allows Admin to upload items, and for shoppers to easy search items and securely purchase items in their cart.
 MERN Stack, deployed on Heroku
 
 🔗 **Live preview** of the app is [here](https://justins-online-shop.herokuapp.com).
