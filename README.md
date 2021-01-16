@@ -6,9 +6,6 @@ MERN Stack, deployed on Heroku
 
 🔗 **Live preview** of the app is [here](https://justins-online-shop.herokuapp.com).
 
-## Purpose: ##
-Showcase my ability to create a full stack application. The app utilizes a MERN stack.
-
 App currently shows a clothing store, but the framework could be used for any type of store.
 
 ## Features: ##
