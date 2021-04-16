@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Button, Descriptions } from "antd";
 
+import { useSelector } from "react-redux";
+
 function ProductInfo(props) {
   const [Product, setProduct] = useState({});
   const [sizeValue, setSizeValue] = useState(1);
@@ -27,15 +29,23 @@ function ProductInfo(props) {
     3: "Large",
     4: "X-Large",
   };
+  
+  const user = useSelector((state) => state.user);
 
   const addToCartHandler = () => {
-    props.addToCart(props.detail._id, props.sizeValue);
-    props.setRefresh(!refresh)
-    alert(
-      `${props.detail.title} (${
-        sizesObj[props.sizeValue]
-      }) was added to your cart!`
-    );
+      if (user.userData && !user.userData.isAuth) {
+      alert(
+        `You must be logged in to add items to your cart`
+      );
+    } else {
+      props.addToCart(props.detail._id, props.sizeValue);
+      props.setRefresh(!refresh);
+      alert(
+        `${props.detail.title} (${
+          sizesObj[props.sizeValue]
+        }) was added to your cart!`
+      );
+    }
   };
 
   return (
