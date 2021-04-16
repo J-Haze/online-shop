@@ -20,6 +20,8 @@ function RightMenu(props) {
   };
 
   const [cartLength, setCartLength] = useState(0);
+  
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     if (user.userData != undefined && user.userData.cart != undefined) {
@@ -45,9 +47,11 @@ function RightMenu(props) {
           <a href="/history">History</a>
         </Menu.Item>
 
+      {isAdmin ? 
         <Menu.Item key="upload">
           <a href="/product/upload">Upload</a>
         </Menu.Item>
+      : ""}
 
         {props.drawer ? <Menu.Item key="cart" id="cart-cont-drawer">
           <Badge count={user.userData && cartLength}>
