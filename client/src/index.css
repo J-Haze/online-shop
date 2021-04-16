@@ -172,6 +172,9 @@ tr:nth-child(even) {
 
 #cart-cont {
   padding-bottom: 3px;
+  
+  display: flex;
+  justify-content: center;
 }
 
 #cart-badge {
