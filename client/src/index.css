@@ -173,7 +173,7 @@ tr:nth-child(even) {
 #cart-cont {
   padding-bottom: 3px;
   
-  padding-right: 5px;
+  padding-right: 20px;
 }
 
 #cart-badge {
