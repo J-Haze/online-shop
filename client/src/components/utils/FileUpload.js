@@ -53,7 +53,7 @@ function FileUpload(props) {
           <div onClick={() => onDelete(image)}>
             <img
               id="scroll-img"
-              src={`http://localhost:5000/${image}`}
+              src={`https://justins-online-shop.herokuapp.com/${image}`}
               alt={`productImg-${index}`}
             />
           </div>
