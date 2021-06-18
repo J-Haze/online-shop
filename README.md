@@ -1,4 +1,4 @@
-# E-Commerce Store App
+# E-commerce Store App
 Online Store App with product search, product filtering, user authentication, PayPal Checkout, and more. 
 <br/> Allows Admin to upload items, and for shoppers to easy search items and securely purchase items in their cart.
 
