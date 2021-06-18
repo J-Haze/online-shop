@@ -26,9 +26,10 @@ App currently shows a clothing store, but the framework could be used for any ty
 
 * ReactJS
 * JavaScript
-* NodeJS
-* ExpressJS
+* Node.js
+* Express
 * MongoDB
+* Mongoose
 * Redux
 * HTML/CSS
 * Paypal Checkout
